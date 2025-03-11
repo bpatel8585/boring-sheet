@@ -2,15 +2,16 @@
     "name": "boring-sheet",
     "version": "1.0.0",
     "description": "A project using three.js",
-    "main": "index.js",
+    "main": "index.html",
     "scripts": {
-        "start": "node index.js"
+        "start": "node index.html"
     },
     "dependencies": {
         "three": "0.144.0"
     },
     "devDependencies": {
+        "vite": "^6.2.1"
     },
-    "author": "bpatel8585",
+    "author": "Boring Sheets",
     "license": "ISC"
 }
