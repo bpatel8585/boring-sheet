@@ -1,0 +1,16 @@
+{
+    "name": "boring-sheet",
+    "version": "1.0.0",
+    "description": "A project using three.js",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "three": "0.144.0"
+    },
+    "devDependencies": {
+    },
+    "author": "bpatel8585",
+    "license": "ISC"
+}
