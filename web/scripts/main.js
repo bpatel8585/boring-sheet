@@ -19,5 +19,5 @@ if ( WebGL.isWebGL2Available() ) {
 	} );
 } else {
 	const warning = WebGL.getWebGL2ErrorMessage();
-	document.getElementById( 'container' ).appendChild( warning );
+	document.getElementById('container').appendChild( warning );
 }
