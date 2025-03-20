@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"net/http"
 
 	"github.com/bpatel8585/boring-sheet/pkg/service"
 	"github.com/bpatel8585/boring-sheet/pkg/shutdown"
@@ -19,6 +20,9 @@ func main() {
 	r.Use(middleware.Recoverer)
 
 	ctx := context.Background()
+
+	fs := http.FileServer(http.Dir("./web"))
+	r.Handle("/web/*", http.StripPrefix("/web/", fs))
 
 	server := service.NewServer(r, service.ServerStartOpts{})
 	if err := server.Start(ctx); err != nil {
