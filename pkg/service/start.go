@@ -8,7 +8,11 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-const DefaultHttpServerAddr = ":30000"
+const (
+	DefaultHttpServerAddr = ":30000"
+	CertFile              = "localhost.crt"
+	KeyFile               = "localhost.key"
+)
 
 type ServerStartOpts struct {
 	HttpServerAddr   string
@@ -45,7 +49,9 @@ func (s *Server) startHttpServer() {
 
 	log.Info().Str("addr", addr).Msg("server started")
 	go func() {
-		http.ListenAndServe(addr, s.router)
+		if err := http.ListenAndServeTLS(addr, CertFile, KeyFile, s.router); err != nil {
+			log.Error().Err(err).Msg("failed to start the https server")
+		}
 	}()
 }
 
